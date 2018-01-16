@@ -16,6 +16,18 @@ class DataDistribution(object):
         samples.sort()
         return samples
 
+class MixtureDataDistribution(object):
+    def __init__(self, mu, sigma):
+        self.mu = mu # is a list 
+        self.sigma = sigma
+
+    def sample(self, N):
+        samples = []
+        for mu in self.mu:
+            samples.append(np.random.normal(mu, self.sigma, int(N / len(self.mu)))
+        samples.sort()
+        return samples
+    
 
 # p_z(z)
 class NoiseDistribution(object):
